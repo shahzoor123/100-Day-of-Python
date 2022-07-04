@@ -1,5 +1,10 @@
-print ("Welcome to Band name Generator.")
-city = input("what's name of the city you grew up in ?")
-pet = input("What's your pet name?")
-band_name = {f"your band name cloud be {city} {pet}"}
-print(band_name)
+#Write your code below this row 👇
+for nums in range(1,101):
+    if nums % 3 == 0 and nums % 5 == 0:
+        print("FizzBuzz")
+    elif nums % 5 == 0:
+        print("Buzz")
+    elif nums % 3 == 0:
+        print("Fizz")
+    else:
+        print(nums) 
