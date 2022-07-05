@@ -9,22 +9,41 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-password = ""
+
+
+# Easy Level
+
+# password = ""
+# for nums in range(1 , nr_numbers + 1):
+#     l = random.choice(letters)
+#     password = l
+#     print(password, end = ' ')
+# for syms in range(1 , nr_symbols + 1):
+#     s = random.choice(symbols)
+#     password = s
+#     print(password, end = ' ')
+# for lets in range(1 , nr_letters + 1):
+#     n = random.choice(numbers)
+#     password = n 
+#     print(password , end = ' ')
+
+# Hard Level
+
+password_list = []
 for nums in range(1 , nr_numbers + 1):
-    l = random.choice(letters)
-    password = l
-    print(password, end = ' ')
+    password_list.append(random.choice(letters)) 
+    
 for syms in range(1 , nr_symbols + 1):
-    s = random.choice(symbols)
-    password = s
-    print(password, end = ' ')
+    password_list.append(random.choice(symbols))
+
 for lets in range(1 , nr_letters + 1):
-    n = random.choice(numbers)
-    password = n 
-    print(password , end = ' ')
+    password_list.append(random.choice(numbers)) 
 
-
-
+random.shuffle(password_list)
+password = ""
+for char in password_list:
+    password += char 
+print(f"Your Password is: {password}")
 
   
 
