@@ -68,3 +68,33 @@ while not at_goal():
     else: 
          move()
 
+
+
+maze completing cahllange
+i code the robot and he succseefully pass the debugging problems safe it self form the infinate loop the code is here
+
+
+
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+    
+def maze():
+    while not at_goal():
+        if right_is_clear():
+            turn_right()
+            move()
+        elif front_is_clear():
+            move()
+        else: 
+            turn_left()
+    
+if right_is_clear() and front_is_clear():
+        turn_left()
+        turn_left()
+        move()
+        turn_left()
+        maze()
+        maze()
+            
