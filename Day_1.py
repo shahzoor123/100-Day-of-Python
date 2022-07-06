@@ -1,22 +1,33 @@
-#Password Generator Project
+#Step 2
+
 import random
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+word_list = ["cat", "car", "bar"]
+chosen_word = random.choice(word_list)
 
-print("Welcome to the PyPassword Generator!")
-nr_letters= int(input("How many letters would you like in your password?\n")) 
-nr_symbols = int(input(f"How many symbols would you like?\n"))
-nr_numbers = int(input(f"How many numbers would you like?\n"))
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
 
-# password = ""
-for n in range(nr_numbers):
-    l = random.choice(letters)
-    print(l)
-for n in range(nr_symbols):
-    s = random.choice(symbols)
-    print(s)
-for n in range(nr_letters):
-    n = random.choice(numbers)
-    print(n)
+#TODO-1: - Create an empty List called display.
+display = []
+#For each letter in the chosen_word, add a "_" to 'display'.
+for letter in chosen_word:
+    letter = "_"
+    display += letter
+print(display)
+
+#So if the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
+
+guess = input("Guess a letter: ").lower()
+
+#TODO-2: - Loop through each position in the chosen_word;       
+#If the letter at that position matches 'guess' then reveal that letter in the display at that position.
+#e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"].
+for positions in range(len(chosen_word)):
+    letter = chosen_word[positions]
+    if letter == guess:
+        display[positions] = letter
+
+#TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
+#Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
+print(display)  
 
