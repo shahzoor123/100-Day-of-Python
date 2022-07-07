@@ -8,11 +8,8 @@ print(art.logo)
 #e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
 #If they type 'yes' then ask them for the direction/text/shift again and call the caesar() function again?
 #Hint: Try creating a while loop that continues to execute the program if the user types 'yes'. 
-while True:
-    restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.")
-    while restart == "yes":
-        
-        
+should_continue = True
+while should_continue:
         direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
         text = input("Type your message:\n").lower()
         shift = int(input("Type the shift number:\n"))
@@ -51,7 +48,12 @@ while True:
             shift = shift % 26 
 
         caesar(text,shift,direction)
-    
+        restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.")
+        if restart == "yes":
+            should_continue = True
+        else:
+            should_continue = False
+            print("Good bye")  
      
    
 
