@@ -1,7 +1,8 @@
 from ast import operator
+import mod.cal_art as art
 
 
-print("calculator")
+
 
 
 
@@ -27,14 +28,15 @@ operations = {
    }
 
 def calculator():
-    num1 = int(input("Enter the a number: "))
+    print(art.logo)
+    num1 = float(input("Enter the a number: "))
     for operators in operations:
         print(operators)   
 
     want_to_continue = True  
     while want_to_continue:
         which_operations = input("Pick up an operation: ")
-        num2 = int(input("What the next number: "))
+        num2 = float(input("What the next number: "))
         calculation_function = operations[which_operations]
         answer = calculation_function(num1,num2)
         print(f"{num1} {which_operations} {num2} = {answer}")
