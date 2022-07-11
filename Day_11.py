@@ -18,22 +18,85 @@
 ## The computer is the dealer.
 
 ##################### Hints #####################
+from sys import flags
+from tkinter import E
 import mod.blackjack_art as art
+import os
 import random
-print(art.logo)
 
 
 
-def add(n1,n2):
-    return n1 + n2
+
+def black_jack():
+    flag1 = 0
+    empty_list = []
+    while flag1 < 3:
+        flag1 += 1
+        data = int(input("enter the number "))
+        def add_to_list(num):
+                empty_list.append(num)
+                full_list = []
+                full_list += empty_list
+                print(full_list)
+                return full_list
+        def sum_of_list():
+            sum_of_list = 0
+            list1 = add_to_list(data)
+            for nums in list1:
+                sum_of_list += nums
+            return sum_of_list
+        
+        print(sum_of_list()) 
+black_jack()
 
 
 
-card_limit = 21
+
+
+
+
+
+
+
+
+
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+want_to_play = input('want to play game type "y" if not type "n"\n')
+if want_to_play == "y":
+    print(art.logo)
+    u1 = random.choice(cards)
+    u2 = random.choice(cards)
+    c1 = random.choice(cards)
+    c2 = random.choice(cards)
+    print(u1,u2,c1,c2)
+    
+    
+else:
+    os.system('cls')
+    
 
-c1 = str(random.choice(cards)) + " " + str(random.choice(cards))
 
 
 
+
+
+
+        
+
+# card_limit = 21
+
+
+
+# c1 = random.choice(cards)
+
+
+# user_cards_list = []
+# if want_to_play == "y":
+    
+#     user_cards = random.choice(cards)
+#     user_cards_list += user_cards
+#     print(f"Your cards: {user_cards_list}, current score: 11")
+
+
+# want_to_stand_or_hit = input("want to play game type 'y' if not type 'n'")
