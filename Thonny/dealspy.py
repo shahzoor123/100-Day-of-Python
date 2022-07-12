@@ -1,12 +1,27 @@
 import random
 
-def deal():
-    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-    for i in range(2):
-        card = random.choice(cards)
-        return card
-        
-        
-    
-    
-deal()    
+print("Welcome to the Number Guessing Game!")
+
+
+
+print("I'm thinking of a number between 1 and 100")
+
+number = random.randint(1,101)
+
+level = input("Choose a difficulty. Type 'easy' or 'hard':\n")
+if level == "easy":
+    chance = 5
+    while chance == 0:
+        guess = int(input("Enter a number"))
+        if guess == number:
+            print("You guessed the number")
+        else:
+            continue    
+else:
+    chance = 10
+    while chance == 0:
+        guess = int(input("Enter a number"))
+        if guess == number:
+            print("You guessed the number")
+        else:
+            continue  
