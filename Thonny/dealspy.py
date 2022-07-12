@@ -1,27 +1,8 @@
-import random
+def mutate(a_list):
+  b_list = []
+  for item in a_list:
+    new_item = item * 2
+  b_list.append(new_item)
+  print(b_list)
 
-print("Welcome to the Number Guessing Game!")
-
-
-
-print("I'm thinking of a number between 1 and 100")
-
-number = random.randint(1,101)
-
-level = input("Choose a difficulty. Type 'easy' or 'hard':\n")
-if level == "easy":
-    chance = 5
-    while chance == 0:
-        guess = int(input("Enter a number"))
-        if guess == number:
-            print("You guessed the number")
-        else:
-            continue    
-else:
-    chance = 10
-    while chance == 0:
-        guess = int(input("Enter a number"))
-        if guess == number:
-            print("You guessed the number")
-        else:
-            continue  
+mutate([1,2,3,5,8,13])
