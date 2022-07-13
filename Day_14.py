@@ -3,10 +3,26 @@ import random
 import mod.game_data_of_higher_lower as list_dict
 print(art.logo)
 
-print(list_dict.data)
+
+def compare(compare_a,agiast_b,user_guess):
+    
 
 
+
+
+
+
+data = list_dict.data
 """"Generate a two random keys from the list"""
+for _ in range(1):
+
+    compare_a = random.choice(data)
+    print(compare_a)
+
+    print(art.vs)
+
+    against_b = random.choice(data)
+    print(against_b)
 
 
 """one for to compare reveal data one to be guessed by the user not reveal the data"""

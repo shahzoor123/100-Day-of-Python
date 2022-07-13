@@ -1,18 +1,22 @@
-def mutate(a_list):
-  b_list = []
-  for item in a_list:
-    new_item = item * 2
-    b_list.append(new_item)
-  return b_list
-
-x = mutate([1,2,3,5,8,13])
-
-def sum_of_list(list_to_sum):
-    y  = sum(list_to_sum)
-    print(y)
-    
-        
-def calling():
-    sum_of_list(x)
-    
-calling()
+data = [
+    {
+        'name': 'Instagram',
+        'follower_count': 346,
+        'description': 'Social media platform',
+        'country': 'United States'
+    },
+    {
+        'name': 'Cristiano Ronaldo',
+        'follower_count': 215,
+        'description': 'Footballer',
+        'country': 'Portugal'
+    },
+    {
+        'name': 'Ariana Grande',
+        'follower_count': 183,
+        'description': 'Musician and actress',
+        'country': 'United States'
+    },
+    ]
+x = data[0]['follower_count']
+print(x)
