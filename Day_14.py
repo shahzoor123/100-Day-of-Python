@@ -10,8 +10,9 @@ game_loop = True
 score = 0
 
 while game_loop:
+    os.system('cls')
     score = score + 1
-    def Higer_lower(compare_a,against_b):
+    def Higher_lower(compare_a,against_b):
         print(f'Compare A: {compare_a["name"]} , {compare_a["description"]} , {compare_a["country"]} , {compare_a["follower_count"]}')
         print(art.vs)
         print(f'Against B: {against_b["name"]} , {against_b["description"]} , {against_b["country"]}, {against_b["follower_count"]}')
@@ -36,12 +37,12 @@ while game_loop:
             return print(f"You're right! Current score: {score}.")
 
         else:
+            os.system('cls')
             global game_loop 
             game_loop = False
-            os.system('cls')
             return print(f"Sorry, that's wrong. Final score: {score}") 
 
     data = list_dict.data
     compare_a = random.choice(data)
     against_b = random.choice(data)   
-    Higer_lower(compare_a,against_b)            
+    Higher_lower(compare_a,against_b)            
