@@ -1,4 +1,5 @@
-print("welcome i am Coffee making machine")
+print("Hello i am Coffee making machine")
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -33,12 +34,11 @@ resources = {
 # print(MENU['espresso']['ingredients'])
 
 
-def which_coffee(coffee_name):
+def which_coffee():
     pass
     
 
-
-def report(money, resources_used):
+def report():
     return print(f"water:{resources['water']}\nMilk:{resources['milk']}\nCoffee:{resources['coffee']}")
 
 
