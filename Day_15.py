@@ -35,7 +35,7 @@ resources = {
 
 def which_coffee(coffee_name):
     pass
-    print("hello")
+    
 
 
 def report(money, resources_used):
