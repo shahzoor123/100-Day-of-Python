@@ -30,27 +30,30 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
-# print(MENU['espresso']['ingredients'])
+
+used = {
+    "water": 100,
+    "milk": 100,
+    "coffee": 50,
+}
+x = resources['water'] - 100
+
+#print(MENU['espresso']['ingredients'])
+#print(MENU['espresso']['cost'])
+
+def check_resources(whole_resources, used_resources , coffee_name , money):
+    if coffee_name == 'espresso':
+        remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
+        remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
+        remaining_milk = whole_resources['milk']
+        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
+    else:    
+        remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
+        remaining_milk = whole_resources['milk'] - used_resources[coffee_name]['ingredients']['milk']
+        remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee'] 
+        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
 
 
-def which_coffee(coffee_name):
-    pass
+check_resources(resources,MENU,"espresso" , 100)
 
 
-def report():
-    return resources
-
-
-machine_off = False
-while machine_off:
-    user_input = input("“What would you like? (espresso/latte/cappuccino): ")
-    if user_input == "off":
-        machine_off = True
-    elif user_input == "report":
-        print(report())
-    elif user_input == "espresso":
-        pass
-    elif user_input == "latter":
-        pass
-    elif user_input == "cappuccino":
-        pass
