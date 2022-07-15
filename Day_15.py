@@ -34,6 +34,7 @@ MENU = {
     }
 }
 
+profit = 0
 resources = {
     "water": 300,
     "milk": 200,
@@ -41,18 +42,25 @@ resources = {
 }
 
 
-def check_resources(whole_resources, used_resources, coffee_name, money):
-
+def check_resources(whole_resources, used_resources, coffee_name):
     if coffee_name == 'espresso':
         remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
         remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
         remaining_milk = whole_resources['milk']
-        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
+        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}")
     else:
         remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
         remaining_milk = whole_resources['milk'] - used_resources[coffee_name]['ingredients']['milk']
         remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
-        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
+        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}")
+
+
+def is_resources_sufficient(order_ingredients):
+    for items in order_ingredients:
+        if order_ingredients[items] >= resources[items]:
+            print(f"Sorry there is not enough {items}.")
+            return False
+    return True
 
 
 def process_coin(coffee_name):
@@ -64,7 +72,9 @@ def process_coin(coffee_name):
     n = int(input("How many nickels?: "))
     p = int(input("How many pennies: "))
     total = round(q * 0.25 + d * 0.10 + n * 0.05 + p * 0.01, 2)
-    if total > coffee_cost:
+    if total >= coffee_cost:
+        global profit
+        profit += coffee_cost
         change = round(total - coffee_cost, 2)
         print(f"The total amount you gave was ${total} Here is your change ${change}")
         print(f"And here is your {coffee_name} coffee ☕ Enjoy")
@@ -73,7 +83,6 @@ def process_coin(coffee_name):
     return total
 
 
-profit = 0
 machine_off = True
 while machine_off:
     user_input = input("“What would you like? (espresso/latte/cappuccino): ")
@@ -86,6 +95,7 @@ while machine_off:
         print(f"money ${profit}")
     else:
         drink = MENU[user_input]
-        print(drink)
-        process_coin(user_input)
+        if is_resources_sufficient(drink['ingredients']):
+            if process_coin(user_input):
+                check_resources(resources, )
 
