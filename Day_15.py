@@ -42,17 +42,9 @@ resources = {
 }
 
 
-def check_resources(whole_resources, used_resources, coffee_name):
-    if coffee_name == 'espresso':
-        remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
-        remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
-        remaining_milk = whole_resources['milk']
-        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}")
-    else:
-        remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
-        remaining_milk = whole_resources['milk'] - used_resources[coffee_name]['ingredients']['milk']
-        remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
-        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}")
+def check_resources(order_ingredients):
+    for items in order_ingredients:
+        resources[items] -= order_ingredients[items]
 
 
 def is_resources_sufficient(order_ingredients):
@@ -97,5 +89,4 @@ while machine_off:
         drink = MENU[user_input]
         if is_resources_sufficient(drink['ingredients']):
             if process_coin(user_input):
-                check_resources(resources, )
-
+                check_resources(drink['ingredients'])
