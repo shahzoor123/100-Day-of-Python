@@ -23,6 +23,14 @@ MENU = {
             "coffee": 24,
         },
         "cost": 3.0,
+    },
+    "start": {
+        "ingredients": {
+            "water": 0,
+            "milk": 0,
+            "coffee": 0,
+        },
+        "cost": 3.0,
     }
 }
 
@@ -33,7 +41,7 @@ resources = {
 }
 
 
-# print(MENU['espresso']['ingredients'])
+
 
 def check_resources(whole_resources, used_resources, coffee_name, money):
     if coffee_name == 'espresso':
@@ -50,15 +58,37 @@ def check_resources(whole_resources, used_resources, coffee_name, money):
 
 check_resources(resources, MENU, "espresso", 100)
 
+
+def process_coin(coffee_name):
+    coffee_cost = MENU[coffee_name]['cost']
+    print(f"${coffee_cost}")
+    q = int(input("How many quarters?: "))
+    d = int(input("How many dimes?: "))
+    n = int(input("How many nickels?: "))
+    p = int(input("How many pennies: "))
+    total = round(q * 0.25 + d * 0.10 + n * 0.05 + p * 0.01 , 2)
+    if total > coffee_cost:
+        change = round(total - coffee_cost , 2)
+        print(f"Here is your change ${change}")
+        print(f"${total}")
+    else:
+        print("You didn't have the money to buy a coffee")
+    return total
+
+
+process_coin('espresso')
+
+
+check_resources(resources, MENU, "start", 0)
 machine_off = True
 while machine_off:
     user_input = input("“What would you like? (espresso/latte/cappuccino): ")
     if user_input == "off":
         machine_off = False
     elif user_input == "report":
-        pass
+        check_resources(resources, MENU, "start", 0)
     elif user_input == "espresso":
-        pass
+        check_resources(resources, MENU, "espresso", 100)
     elif user_input == "latter":
         pass
     elif user_input == "cappuccino":

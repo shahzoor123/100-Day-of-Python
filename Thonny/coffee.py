@@ -36,24 +36,20 @@ used = {
     "milk": 100,
     "coffee": 50,
 }
-x = resources['water'] - 100
 
-#print(MENU['espresso']['ingredients'])
-#print(MENU['espresso']['cost'])
-
-def check_resources(whole_resources, used_resources , coffee_name , money):
-    if coffee_name == 'espresso':
-        remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
-        remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
-        remaining_milk = whole_resources['milk']
-        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
-    else:    
-        remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
-        remaining_milk = whole_resources['milk'] - used_resources[coffee_name]['ingredients']['milk']
-        remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee'] 
-        return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
-
-
-check_resources(resources,MENU,"espresso" , 100)
-
-
+def process_coin(coffee_name):
+    coffee_cost = MENU[coffee_name]['cost']
+    print(f"${coffee_cost}")
+    q = int(input("How many quarters?: "))
+    d = int(input("How many dimes?: "))
+    n = int(input("How many nickels?: "))
+    p = int(input("How many pennies: "))
+    total = round(q * 0.25 + d * 0.10 + n * 0.05 + p * 0.01 , 2)
+    if total > coffee_cost:
+        change = round(total - coffee_cost , 2)
+        print(f"Here is your change ${change}")
+        print(f"${total}")
+    else:
+        print("You didn't have the money to buy a coffee")
+    return total
+process_coin('espresso')
