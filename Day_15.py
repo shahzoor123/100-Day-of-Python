@@ -35,7 +35,7 @@ resources = {
 
 # print(MENU['espresso']['ingredients'])
 
-def check_resources(whole_resources, used_resources , coffee_name , money):
+def check_resources(whole_resources, used_resources, coffee_name, money):
     if coffee_name == 'espresso':
         remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
         remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
@@ -48,18 +48,7 @@ def check_resources(whole_resources, used_resources , coffee_name , money):
         return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
 
 
-check_resources(resources,MENU,"espresso" , 100)
-
-
-def make_coffee(coffee_name):
-
-    pass
-
-
-def report():
-    money = 100
-    return print(f"water:{resources['water']}\nMilk:{resources['milk']}\nCoffee:{resources['coffee']}\nMoney:${money}")
-
+check_resources(resources, MENU, "espresso", 100)
 
 machine_off = True
 while machine_off:
@@ -67,7 +56,7 @@ while machine_off:
     if user_input == "off":
         machine_off = False
     elif user_input == "report":
-        report()
+        pass
     elif user_input == "espresso":
         pass
     elif user_input == "latter":
