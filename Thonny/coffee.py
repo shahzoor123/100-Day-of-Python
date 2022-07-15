@@ -37,15 +37,15 @@ def which_coffee(coffee_name):
     pass
 
 
-def report(money, resources_used):
-    return print(f"water:{resources['water']}\nMilk:{resources['milk']}\nCoffee:{resources['coffee']}")
+def report():
+    return resources
 
 
-machine_off = True
+machine_off = False
 while machine_off:
     user_input = input("“What would you like? (espresso/latte/cappuccino): ")
     if user_input == "off":
-        machine_off = False
+        machine_off = True
     elif user_input == "report":
         print(report())
     elif user_input == "espresso":
