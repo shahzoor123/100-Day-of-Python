@@ -41,9 +41,8 @@ resources = {
 }
 
 
-
-
 def check_resources(whole_resources, used_resources, coffee_name, money):
+
     if coffee_name == 'espresso':
         remaining_water = whole_resources['water'] - used_resources[coffee_name]['ingredients']['water']
         remaining_coffee = whole_resources['coffee'] - used_resources[coffee_name]['ingredients']['coffee']
@@ -56,40 +55,37 @@ def check_resources(whole_resources, used_resources, coffee_name, money):
         return print(f"water:{remaining_water}\nMilk:{remaining_milk}\nCoffee:{remaining_coffee}\nMoney:${money}")
 
 
-check_resources(resources, MENU, "espresso", 100)
-
-
 def process_coin(coffee_name):
     coffee_cost = MENU[coffee_name]['cost']
-    print(f"${coffee_cost}")
+    print(f"The coffee costs ${coffee_cost}")
+    print("Please insert the coins")
     q = int(input("How many quarters?: "))
     d = int(input("How many dimes?: "))
     n = int(input("How many nickels?: "))
     p = int(input("How many pennies: "))
-    total = round(q * 0.25 + d * 0.10 + n * 0.05 + p * 0.01 , 2)
+    total = round(q * 0.25 + d * 0.10 + n * 0.05 + p * 0.01, 2)
     if total > coffee_cost:
-        change = round(total - coffee_cost , 2)
-        print(f"Here is your change ${change}")
-        print(f"${total}")
+        change = round(total - coffee_cost, 2)
+        print(f"The total amount you gave was ${total} Here is your change ${change}")
+        print(f"And here is your {coffee_name} coffee ☕ Enjoy")
     else:
-        print("You didn't have the money to buy a coffee")
+        print("You didn't have the sufficient money to buy a coffee")
     return total
 
 
-process_coin('espresso')
-
-
-check_resources(resources, MENU, "start", 0)
+profit = 0
 machine_off = True
 while machine_off:
     user_input = input("“What would you like? (espresso/latte/cappuccino): ")
     if user_input == "off":
         machine_off = False
     elif user_input == "report":
-        check_resources(resources, MENU, "start", 0)
-    elif user_input == "espresso":
-        check_resources(resources, MENU, "espresso", 100)
-    elif user_input == "latter":
-        pass
-    elif user_input == "cappuccino":
-        pass
+        print(f"water {resources['water']}ml")
+        print(f"milk {resources['milk']}ml")
+        print(f"coffee {resources['coffee']}g")
+        print(f"money ${profit}")
+    else:
+        drink = MENU[user_input]
+        print(drink)
+        process_coin(user_input)
+
