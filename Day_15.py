@@ -77,7 +77,7 @@ def process_coin(coffee_name):
 
 machine_off = True
 while machine_off:
-    user_input = input("“What would you like? (espresso/latte/cappuccino): ")
+    user_input = input("What would you like? (espresso/latte/cappuccino): ")
     if user_input == "off":
         machine_off = False
     elif user_input == "report":
