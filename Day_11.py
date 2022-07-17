@@ -4,25 +4,26 @@ import random
 
 print(art.logo)
 
+
 def deal():
-    
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     card = random.choice(cards)
     return card
 
-def calculate_score(cards):
 
+def calculate_score(cards):
     if sum(cards) == 21 and len(cards) == 2:
         return 0
     if 11 in cards and sum(cards) > 21:
         cards.remove(11)
-        cards.append(1)    
+        cards.append(1)
     return sum(cards)
-            
-def compare(user_score,computer_score):
+
+
+def compare(user_score, computer_score):
     if user_score == computer_score:
         return "Draw 🤔 "
-    elif computer_score == 0 :
+    elif computer_score == 0:
         return "Lose, opponent has Blackjack 😭"
     elif user_score == 0:
         return "win with a Blackjack 😎"
@@ -31,9 +32,11 @@ def compare(user_score,computer_score):
     elif user_score > computer_score:
         return "You win 😎"
     else:
-        return "You lose 😭"                    
+        return "You lose 😭"
 
-# def play_game():
+    # def play_game():
+
+
 #     user_cards  = []
 #     computer_cards = []
 #     is_game_over = False
@@ -68,31 +71,31 @@ def compare(user_score,computer_score):
 #     play_game()
 
 
-
-
 def black_jack():
     card_limit = 21
     flag1 = 0
     empty_list = []
     while flag1 < 2:
         flag1 += 1
-        data = deal() 
+        data = deal()
+
         def add_to_list(num):
             empty_list.append(num)
             full_list = []
             full_list += empty_list
-            
+
             return full_list
+
         def sum_of_list():
             sum_of_list = 0
             list1 = add_to_list(data)
             for nums in list1:
                 sum_of_list += nums
             return sum_of_list
+
         score = sum_of_list()
         lists = add_to_list(data)
         print(f"Your cards: {lists}, current score: {score}")
-   
+
+
 black_jack()
-
-
