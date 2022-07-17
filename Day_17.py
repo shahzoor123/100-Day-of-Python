@@ -8,7 +8,7 @@ for questions in data:
     questions_answer = questions['answer']
     new_questions = Questions(questions_text, questions_answer)
     question_bank.append(new_questions)
-print(question_bank)
+print(question_bank[2].answer)
 
 
 
