@@ -1,5 +1,5 @@
-from mod.quiz.data import question_data
-from mod.quiz.question_model import Questions
+from data import question_data
+from question_model import Questions
 
 question_bank = []
 data = question_data
