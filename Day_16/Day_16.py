@@ -1,6 +1,6 @@
-from mod.coffee.menu import Menu, MenuItem
-from mod.coffee.coffee_maker import CoffeeMaker
-from mod.coffee.money_machine import MoneyMachine
+from coffee.menu import Menu, MenuItem
+from coffee.coffee_maker import CoffeeMaker
+from coffee.money_machine import MoneyMachine
 
 menu = Menu()
 coffee_machine = CoffeeMaker()
