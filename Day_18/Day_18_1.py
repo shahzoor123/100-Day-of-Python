@@ -5,15 +5,15 @@ tummy = Turtle()
 tummy.shape('turtle')
 tummy.color('brown')
 
-# for _ in range(4):
-#     tummy.forward(100)
-#     tummy.left(90)
+for _ in range(4):
+    tummy.forward(100)
+    tummy.left(90)
 
-# for _ in range(5):
-#     tummy.forward(30)
-#     tummy.penup()
-#     tummy.forward(30)
-#     tummy.pendown()
+for _ in range(5):
+    tummy.forward(30)
+    tummy.penup()
+    tummy.forward(30)
+    tummy.pendown()
 
 
 # Triangle
@@ -25,6 +25,8 @@ for _ in range(3):
 # Square
 
 for _ in range(4):
+    tummy.color('pink')
+
     tummy.forward(100)
     tummy.right(-90)
 #
