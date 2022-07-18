@@ -1,13 +1,36 @@
-import colorgram
+import random
+import turtle
+from turtle import Turtle, Screen
 
-# rgb_color = []
-# colors = colorgram.extract('hirst.jpg', 10)
-#
-# for color in colors:
-#     r = color.rgb.r
-#     g = color.rgb.g
-#     b = color.rgb.b
-#     rgb_color.append((r, g, b))
-#
-# print(rgb_color)
+turtle.colormode(255)
+
+tummy = Turtle()
+tummy.speed(100)
+
+tummy.shape('turtle')
 rgb = [(26, 108, 164), (194, 38, 81), (237, 161, 50), (234, 215, 86), (223, 137, 176), (143, 108, 57)]
+tummy.penup()
+tummy.setheading(255)
+tummy.forward(300)
+tummy.setheading(0)
+number_of_dots = 101
+
+for dot_counts in range(1, number_of_dots):
+    tummy.penup()
+    tummy.forward(50)
+    tummy.dot(20, random.choice(rgb))
+    tummy.penup()
+    if dot_counts % 10 == 0:
+        tummy.setheading(90)
+        tummy.forward(50)
+        tummy.setheading(180)
+        tummy.forward(500)
+        tummy.setheading(0)
+
+
+
+
+
+
+screen = Screen()
+screen.exitonclick()
