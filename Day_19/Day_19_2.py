@@ -13,18 +13,29 @@ all_turtles = []
 
 
 for num in range(0, 5):
-    tim = Turtle(shape='turtle')
-    tim.penup()
-    tim.goto(x=-230, y=y_positions[num])
-    tim.color(colors[num])
+    new_turtle = Turtle(shape='turtle')
+    new_turtle.penup()
+    new_turtle.goto(x=-230, y=y_positions[num])
+    new_turtle.color(colors[num])
+    all_turtles.append(new_turtle)
 
 
 if user_bet:
     is_race_on = True
 
 while is_race_on:
-    random_distance = random.randint(0, 10)
-    turtle.forward(random_distance)
+    for turtle in all_turtles:
+        random_distance = random.randint(0, 10)
+        turtle.forward(random_distance)
+        if turtle.xcor() > 230:
+            is_race_on = False
+            winner = turtle.pencolor()
+            if winner == user_bet:
+                print(f"Wow the race is wined by {turtle.pencolor()} turtle your bet was on the right horse")
+            else:
+                print(f"The race is wined by {turtle.pencolor()} turtle your bet was not on the right horse")
+
+
 
 
 screen.exitonclick()
