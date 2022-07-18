@@ -8,11 +8,11 @@ screen = Screen()
 
 
 def move_forwards():
-    tummy.forward(10)
+    tummy.forward(20)
 
 
 def move_backwards():
-    tummy.backward(10)
+    tummy.backward(20)
 
 
 def clear_screen():
@@ -20,11 +20,11 @@ def clear_screen():
 
 
 def counter_clockwise():
-    tummy.left(-10)
+    tummy.left(20)
 
 
 def clockwise():
-    tummy.left(10)
+    tummy.left(-20)
 
 
 screen.listen()
