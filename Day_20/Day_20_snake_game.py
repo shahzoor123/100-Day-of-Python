@@ -2,6 +2,7 @@ import random
 from turtle import Turtle, Screen
 import time
 from snake_class import Snake
+from food_class import Food
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -21,7 +22,7 @@ game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(.1)
-
+    food = Food()
     snake.snake_move()
 
 screen.exitonclick()
