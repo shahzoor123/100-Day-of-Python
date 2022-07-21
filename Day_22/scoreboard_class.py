@@ -18,15 +18,16 @@ class ScoreBoard(Turtle):
         self.score_update()
 
     def score_update(self):
+        self.clear()
         self.goto(-100, 200)
         self.write(self.l_Score, align=ALIGNMENT, font=FONT)
         self.goto(100, 200)
         self.write(self.r_Score, align=ALIGNMENT, font=FONT)
 
     def l_point(self):
-        self.score += 1
+        self.l_Score += 1
         self.score_update()
 
     def r_point(self):
-        self.score += 1
+        self.r_Score += 1
         self.score_update()

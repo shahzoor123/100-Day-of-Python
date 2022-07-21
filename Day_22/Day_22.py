@@ -24,7 +24,7 @@ screen.onkey(l_paddle.down, 's')
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.ball_movement()
     if ball.ycor() > 280 or ball.ycor() < -280:
@@ -33,10 +33,10 @@ while game_is_on:
         ball.bounce_x()
     if ball.xcor() > 380:
         ball.reset()
-        score.l_Score()
+        score.l_point()
     if ball.xcor() < -380:
         ball.reset()
-        score.r_Score()
+        score.r_point()
 
 
 screen.exitonclick()
