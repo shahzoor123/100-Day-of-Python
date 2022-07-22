@@ -12,8 +12,11 @@ class Player(Turtle):
         self.shape('turtle')
         self.color('white')
         self.penup()
-        self.goto(0, -280)
+        self.goto(STARTING_POSITION)
         self.left(90)
 
     def up(self):
-        self.forward(10)
+        self.forward(40)
+
+    def down(self):
+        self.backward(40)
